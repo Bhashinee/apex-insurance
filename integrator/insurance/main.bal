@@ -13,7 +13,7 @@ listener http:Listener httpListener = check new (9090);
 //         maxAge: 3600
 //     }
 // }
-service / on httpListener {
+service / on new http:Listener(9090) {
 
     resource function post policy(@http:Payload PolicyRequest request) returns PolicyResponse|ReferralResponse|error {
 
